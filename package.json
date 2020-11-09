@@ -1,0 +1,48 @@
+{
+  "name": "OneWorldRadio",
+  "version": "1.0.1",
+  "description": "Tomorrowland one world radio",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^10.1.5",
+    "electron-builder": "^22.9.1"
+  },
+  "build": {
+    "appId": "tml.player",
+    "icon": "./assets/img/icon.png",
+    "dmg": {
+      "contents": [
+        {
+          "x": 110,
+          "y": 150
+        },
+        {
+          "x": 240,
+          "y": 150,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ]
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ]
+    },
+    "win": {
+      "target": "squirrel",
+      "icon": "build/icon.ico"
+    }
+  },
+  "dependencies": {}
+}
