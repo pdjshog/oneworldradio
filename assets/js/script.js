@@ -48,27 +48,37 @@ let player = {
 
 }
 
-document.addEventListener("DOMContentLoaded", function(event) {
+
+document.addEventListener("DOMContentLoaded", function (event) {
   player.init();
 
-  document.querySelector('audio').addEventListener("playing", function() {
+  document.querySelector('audio').addEventListener("playing", function () {
     document.querySelector('.player-button').classList.remove('player-button-spining');
     document.querySelector('.player-button').classList.add('player-button-pause');
   }, true);
-  document.querySelector('audio').addEventListener("loadstart", function() {
+  document.querySelector('audio').addEventListener("loadstart", function () {
     document.querySelector('.player-button').classList.remove('player-button-pause');
     document.querySelector('.player-button').classList.add('player-button-spining');
   }, true);
-  document.querySelector('audio').addEventListener("pause", function() {
+  document.querySelector('audio').addEventListener("pause", function () {
     document.querySelector('.player-button').classList.remove('player-button-spining');
     document.querySelector('.player-button').classList.remove('player-button-pause');
   }, true);
 
-  document.querySelector('.player-button').addEventListener("click", function() {
-    if(document.querySelector('.player-button').classList.contains('player-button-pause')) {
+  document.querySelector('.player-button').addEventListener("click", function () {
+    if (document.querySelector('.player-button').classList.contains('player-button-pause')) {
       document.querySelector('audio').pause();
     } else {
       document.querySelector('audio').play();
     }
   });
 });
+
+const { ipcRenderer } = require('electron');
+ipcRenderer.on('play', (event) => {
+  document.querySelector('audio').play();
+});
+
+ipcRenderer.on('pause', (event) => {
+  document.querySelector('audio').pause();
+})
