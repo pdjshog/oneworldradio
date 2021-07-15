@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "electron .",
+    "start": "NODE_ENV=development electron .",
     "pack": "electron-builder --dir",
     "dist": "electron-builder"
   },
@@ -17,6 +17,18 @@
     "electron-builder": "^22.9.1"
   },
   "build": {
+    "files": [
+      "**/*"
+    ],
+    "extraResources": [
+      {
+        "from": "assets/tray/",
+        "to": "assets/tray/",
+        "filter": [
+          "**/*"
+        ]
+      }
+    ],
     "appId": "tml.player",
     "icon": "./assets/img/icon.png",
     "dmg": {
@@ -44,5 +56,7 @@
       "icon": "build/icon.ico"
     }
   },
-  "dependencies": {}
+  "dependencies": {
+    "airplay": "0.0.3"
+  }
 }

@@ -68,7 +68,7 @@ body, html {
 }
 
 .player-button:hover {
-    box-shadow: 0 0 0 4px rgba(255,255,255,.8), 0 0 0 1px #fff inset;
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, .8), 0 0 0 1px #fff inset;
 }
 
 .player-button-spining {
@@ -88,10 +88,10 @@ body, html {
 
 @keyframes spining {
     from {
-        transform:rotate(0deg)
+        transform: rotate(0deg)
     }
     to {
-        transform:rotate(1turn)
+        transform: rotate(1turn)
     }
 }
 
